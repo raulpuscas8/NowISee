@@ -1,35 +1,22 @@
-import { StatusBar as ExpoStatusBar } from "expo-status-bar";
+import "react-native-gesture-handler";
 import React from "react";
-import { ThemeProvider } from "styled-components/native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
+import OnBoardScreen from "./src/navigation/screens/OnBoardScreen";
+import HomeScreen from "./src/navigation/screens/HomeScreen";
+import DetailsScreen from "./src/navigation/screens/DetailsScreen";
+const Stack = createStackNavigator();
 
-import {
-  useFonts as useOswald,
-  Oswald_400Regular,
-} from "@expo-google-fonts/oswald";
-import { useFonts as useLato, Lato_400Regular } from "@expo-google-fonts/lato";
-
-import { theme } from "./src/infrastructure/theme";
-import { RestaurantsScreen } from "./src/features/restaurants/screens/restaurants.screen";
-
-export default function App() {
-  const [oswaldLoaded] = useOswald({
-    Oswald_400Regular,
-  });
-
-  const [latoLoaded] = useLato({
-    Lato_400Regular,
-  });
-
-  if (!oswaldLoaded || !latoLoaded) {
-    return null;
-  }
-
+const App = () => {
   return (
-    <>
-      <ThemeProvider theme={theme}>
-        <RestaurantsScreen />
-      </ThemeProvider>
-      <ExpoStatusBar style="auto" />
-    </>
+    <NavigationContainer>
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="OnBoardScreen" component={OnBoardScreen} />
+        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="DetailsScreen" component={DetailsScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+};
+
+export default App;
