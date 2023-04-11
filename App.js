@@ -1,22 +1,19 @@
-import "react-native-gesture-handler";
 import React from "react";
+import { SafeAreaView, StatusBar } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-import OnBoardScreen from "./src/navigation/screens/OnBoardScreen";
-import HomeScreen from "./src/navigation/screens/HomeScreen";
-import DetailsScreen from "./src/navigation/screens/DetailsScreen";
-const Stack = createStackNavigator();
+
+import Navigation from "./src/navigation";
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="OnBoardScreen" component={OnBoardScreen} />
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
-        <Stack.Screen name="DetailsScreen" component={DetailsScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <>
+      <StatusBar barStyle={"dark-content"} />
+
+      <Navigation />
+    </>
   );
 };
 
 export default App;
+//am ramas la minutul 2:01:04
+//https://www.youtube.com/watch?v=rb70_TXRQNE

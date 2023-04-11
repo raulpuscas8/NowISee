@@ -187,19 +187,6 @@ export function HomeScreen() {
           })}
         ></Tab.Screen>
       </Tab.Navigator>
-
-      <Animated.View
-        style={{
-          width: getWidth() - 20,
-          height: 2,
-          backgroundColor: "blue",
-          position: "absolute",
-          bottom: 98,
-          left: 40,
-          borderRadius: 20,
-          transform: [{ translateX: tabOffsetValue }],
-        }}
-      ></Animated.View>
     </>
   );
 }
